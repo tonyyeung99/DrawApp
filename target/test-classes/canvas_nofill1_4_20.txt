@@ -1,0 +1,6 @@
+4;
+20;
+             XXXXX  ;
+XXXXXX       X   X  ;
+     X       XXXXX  ;
+     X              ;

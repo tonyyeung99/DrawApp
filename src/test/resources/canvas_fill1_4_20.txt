@@ -1,0 +1,6 @@
+4;
+20;
+oooooooooooooXXXXXoo;
+XXXXXXoooooooX   Xoo;
+     XoooooooXXXXXoo;
+     Xoooooooooooooo;

@@ -1,0 +1,6 @@
+4;
+20;
+mmmmmmmmmmmmmXXXXXmm;
+XXXXXXmmmmmmmX   Xmm;
+     XmmmmmmmXXXXXmm;
+     Xmmmmmmmmmmmmmm;
