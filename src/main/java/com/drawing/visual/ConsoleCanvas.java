@@ -26,6 +26,11 @@ public class ConsoleCanvas implements Canvas{
 	}
 	
 	@Override
+	public void updateBuffer(char[][] buffer) {
+		this.pixels = buffer;		
+	}
+
+	@Override
 	public void paint() {
 		String horizontalFrame = String.format("%0" + width + "d", 0).replace("0", "-");
 		StringBuilder builder = new StringBuilder();

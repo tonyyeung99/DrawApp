@@ -36,6 +36,7 @@ public class TestInputValidatorCommandTypeQ{
 
 	@Test
 	public void testValidateTypeQCommandSuccess() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("Q");
 		inputValidator.validate();
@@ -43,14 +44,20 @@ public class TestInputValidatorCommandTypeQ{
 		assertTrue(cmd==CommandType.Q);
 		String[] words = inputValidator.getCommandWords();
 		String[] expWords = new String[]{"Q"};
-		assertArrayEquals(expWords, words);
+		assertArrainputValidatoryEquals(expWords, words);*/
+		String[] expWords = new String[]{"Q"};
+		inputValidator.validate(expWords);
 	}
 
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeCCommandTooManyParameters() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("Q 4 5");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"Q", "4", "5"};
+		inputValidator.validate(expWords);
 	}
 	
 }

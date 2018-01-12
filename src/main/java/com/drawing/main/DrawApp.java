@@ -7,9 +7,11 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.drawing.command.Command;
 import com.drawing.command.CommandParser;
+import com.drawing.command.CommandType;
 import com.drawing.command.CommandValidator;
 import com.drawing.command.VanillaCommandParser;
 import com.drawing.command.VanillaCommandValidator;
+import com.drawing.util.ParserUtil;
 import com.drawing.visual.ConsoleDrawEngine;
 import com.drawing.visual.DrawEngine;
 
@@ -45,29 +47,28 @@ public class DrawApp {
 	public void process() {
 		while(true){
 			System.out.println("Please enter the command:");
-			String input = readUserInput();
-			initInputValidator(input);
+			String userInput = readUserInput();
+			InputlineTokenizer tokenizer = new InputlineTokenizer();
 			Command cmd;
-			try{inputValidator.validate();} catch (InvalidInputLineException e){System.out.println(e.getMessage()); continue;}
 			try{
-				cmd = cmdParser.Parse( inputValidator.getCommandWords(), inputValidator.getCommandType());
-				cmdParser.validate(cmd);
-			} catch (DrawPrecheckException e){
-				System.out.println(e.getMessage());
+				String[] commandWords = tokenizer.process(userInput);
+				inputValidator.validate(commandWords);				
+				cmd = cmdParser.Parse( commandWords);
+				cmdParser.validateDrawLogic(cmd);
+				invoker.storeAndExecute(cmd);
+			}catch(InvalidInputLineException inputExceptoin){
+				System.out.println(inputExceptoin.getMessage()); 
 				continue;
-			} catch (InvalidInputLineException e){System.out.println(e.getMessage()); continue;}
-			invoker.storeAndExecute(cmd);
+			}catch(DrawPrecheckException drawException){
+				System.out.println(drawException.getMessage()); 
+				continue;
+			}		
 		}
 	}
 	
 	public void gracefulExit(){
 		System.out.println("Exit the applicaiton now.");
 		System.exit(0);
-	}
-	
-	private void initInputValidator(String input){
-		inputValidator.reset();
-		inputValidator.setProcessingStr(input);
 	}
 	
 	private String readUserInput(){

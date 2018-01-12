@@ -48,11 +48,11 @@ public class TestInvoker{
 	}		
 
 	@Test
-	public void testInvokeCreateCanvasCommand() throws DrawPrecheckException, FileNotFoundException {
+	public void testInvokeCreateCanvasCommand() throws DrawPrecheckException, FileNotFoundException, InvalidInputLineException {
 		char[][] expectEmptyCanvas = CanvasLoader.load(FILE_INV_4_20);		 
 		String[] splitedStrings = {"C","20", "4"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.C);
+		Command testCmd = parser.Parse(splitedStrings);
 		invoker.storeAndExecute(testCmd);
 		char[][] testEmptyCanvas = engine.getCanvas().exportPixels();
 		assertArrayEquals(expectEmptyCanvas, testEmptyCanvas);
@@ -64,7 +64,7 @@ public class TestInvoker{
 	}	
 	
 	@Test
-	public void testInvokdCombineTogether() throws DrawPrecheckException, FileNotFoundException {
+	public void testInvokdCombineTogether() throws DrawPrecheckException, FileNotFoundException, InvalidInputLineException {
 		char[][] expectEmptyCanvas = CanvasLoader.load(FILE_INV3_4_20);		 
 		String[] splitedStrings1 = {"C","20","4"};
 		String[] splitedStrings2 = {"L","1","2","6","2"};
@@ -73,11 +73,11 @@ public class TestInvoker{
 		String[] splitedStrings5 = {"B","10", "3", "o"};
 		
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd1 = parser.Parse(splitedStrings1, CommandType.C);
-		Command testCmd2 = parser.Parse(splitedStrings2, CommandType.L);
-		Command testCmd3 = parser.Parse(splitedStrings3, CommandType.L);
-		Command testCmd4 = parser.Parse(splitedStrings4, CommandType.R);
-		Command testCmd5 = parser.Parse(splitedStrings5, CommandType.B);		
+		Command testCmd1 = parser.Parse(splitedStrings1);
+		Command testCmd2 = parser.Parse(splitedStrings2);
+		Command testCmd3 = parser.Parse(splitedStrings3);
+		Command testCmd4 = parser.Parse(splitedStrings4);
+		Command testCmd5 = parser.Parse(splitedStrings5);		
 		engine.createCanvas(20, 4);
 		invoker.storeAndExecute(testCmd1);
 		invoker.storeAndExecute(testCmd2);

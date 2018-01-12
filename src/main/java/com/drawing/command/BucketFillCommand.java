@@ -1,6 +1,7 @@
 package com.drawing.command;
 
 import com.drawing.visual.DrawEngine;
+import com.drawing.visual.Point;
 
 public class BucketFillCommand implements Command{
 
@@ -18,7 +19,7 @@ public class BucketFillCommand implements Command{
 
 	@Override
 	public void execute() {
-		engine.renderBucketFill(x, y, c);
+		engine.renderBucketFill(new Point(x, y), c);
 		engine.paintCanvas();
 	}
 

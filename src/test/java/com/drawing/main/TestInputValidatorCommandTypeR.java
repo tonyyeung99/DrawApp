@@ -34,7 +34,8 @@ public class TestInputValidatorCommandTypeR{
 	}		
 
 	@Test
-	public void testValidateTypeRCommandSuccess() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandSuccess() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 14 1 18 3");
 		inputValidator.validate();
@@ -42,62 +43,89 @@ public class TestInputValidatorCommandTypeR{
 		assertTrue(cmd==CommandType.R);
 		String[] words = inputValidator.getCommandWords();
 		String[] expWords = new String[]{"R","14","1", "18", "3"};
-		assertArrayEquals(expWords, words);
+		assertArrayEquals(expWords, words);*/
+		String[] expWords = new String[]{"R","14","1", "18", "3"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandNotEnoughParameters() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandNotEnoughParameters() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 4 3 3");
-		inputValidator.validate();
+		inputValidator.validate();*/		
+		String[] expWords = new String[]{"R", "4", "3", "3"};
+		inputValidator.validate(expWords);		
 	}	
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandTooManyParameters() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandTooManyParameters() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 14 1 18 3 7");
-		inputValidator.validate();
+		inputValidator.validate();*/		
+		String[] expWords = new String[]{"R", "14", "1", "18", "3", "7"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandHasZeroParameter1() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandHasZeroParameter1() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 0 2 6 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		String[] expWords = new String[]{"R", "0", "2", "6", "2"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandHasZeroParameter2() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandHasZeroParameter2() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 14 1 18 0");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		String[] expWords = new String[]{"R", "14", "1", "18", "0"};
+		inputValidator.validate(expWords);		
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandHasNegativeParameter1() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandHasNegativeParameter1() throws InvalidInputLineException {
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 14 -1 18 0");
-		inputValidator.validate();
+		inputValidator.validate();*/		
+		String[] expWords = new String[]{"R", "14", "-1", "18", "0"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeRCommandHasNegativeParameter2() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 14 1 18 -3");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		String[] expWords = new String[]{"R", "14", "1", "18", "-3"};
+		inputValidator.validate(expWords);
 	}	
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandPointsSwap1() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandPointsSwap1() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 6 2 1 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"R", "6", "2", "1", "2"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeRCommandPointsSwap2() throws InvalidInputLineException {		
+	public void testValidateTypeRCommandPointsSwap2() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("R 18 3 14 1");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		String[] expWords = new String[]{"R", "18", "3", "14", "1"};
+		inputValidator.validate(expWords);
 	}
 }

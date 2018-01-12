@@ -1,11 +1,12 @@
 package com.drawing.command;
 
 import com.drawing.main.DrawPrecheckException;
+import com.drawing.main.InvalidInputLineException;
 
 public interface CommandParser {	
 	
-	public void validate(Command command) throws DrawPrecheckException;
+	public void validateDrawLogic(Command command) throws DrawPrecheckException;
 	
-	public Command Parse(String[] splitedInputLine, CommandType type) throws DrawPrecheckException;	
+	public Command Parse(String[] splitedInputLine) throws DrawPrecheckException, InvalidInputLineException;	
 	
 }

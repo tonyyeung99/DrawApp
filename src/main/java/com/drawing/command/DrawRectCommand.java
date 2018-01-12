@@ -1,6 +1,7 @@
 package com.drawing.command;
 
 import com.drawing.visual.DrawEngine;
+import com.drawing.visual.Point;
 
 public class DrawRectCommand implements Command{
 
@@ -18,7 +19,9 @@ public class DrawRectCommand implements Command{
 
 	@Override
 	public void execute() {
-		engine.renderRectangle(x1, y1, x2, y2);
+		Point point1 = new Point(x1, y1); 
+		Point point2 = new Point(x2, y2);
+		engine.renderRectangle(point1, point2);
 		engine.paintCanvas();
 	}
 

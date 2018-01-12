@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.drawing.main.DrawApp;
 import com.drawing.main.DrawPrecheckException;
+import com.drawing.main.InvalidInputLineException;
 import com.drawing.visual.ConsoleDrawEngine;
 import com.drawing.visual.DrawEngine;
 
@@ -32,20 +33,20 @@ public class TestCommandParser {
 	}
 	
 	@Test
-	public void testParseCreateCanvasCommand() throws DrawPrecheckException{
+	public void testParseCreateCanvasCommand() throws DrawPrecheckException, InvalidInputLineException{
 		String[] splitedStrings = {"C","20", "4"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.C);
+		Command testCmd = parser.Parse(splitedStrings);
 		assertTrue(testCmd instanceof CreateCanvasCommand);		
 		assertEquals(((CreateCanvasCommand) testCmd).getWidth(), 20);
 		assertEquals(((CreateCanvasCommand) testCmd).getHeight(), 4);
 	}
 	
 	@Test
-	public void testParseDrawLineCommand() throws DrawPrecheckException{
+	public void testParseDrawLineCommand() throws DrawPrecheckException, InvalidInputLineException{
 		String[] splitedStrings = {"L","1", "2", "6", "2"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.L);
+		Command testCmd = parser.Parse(splitedStrings);
 		assertTrue(testCmd instanceof DrawLineCommand);
 		assertEquals(((DrawLineCommand) testCmd).getX1(), 1);
 		assertEquals(((DrawLineCommand) testCmd).getY1(), 2);
@@ -54,10 +55,10 @@ public class TestCommandParser {
 	}
 	
 	@Test
-	public void testParseDrawRectCommand() throws DrawPrecheckException{
+	public void testParseDrawRectCommand() throws DrawPrecheckException, InvalidInputLineException{
 		String[] splitedStrings = {"R","14", "1", "8", "3"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.R);
+		Command testCmd = parser.Parse(splitedStrings);
 		assertTrue(testCmd instanceof DrawRectCommand);
 		assertEquals(((DrawRectCommand) testCmd).getX1(), 14);
 		assertEquals(((DrawRectCommand) testCmd).getY1(), 1);
@@ -66,10 +67,10 @@ public class TestCommandParser {
 	}
 	
 	@Test
-	public void testParseBuckFillCommand() throws DrawPrecheckException{
+	public void testParseBuckFillCommand() throws DrawPrecheckException, InvalidInputLineException{
 		String[] splitedStrings = {"B","10", "3", "o"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.B);
+		Command testCmd = parser.Parse(splitedStrings);
 		assertTrue(testCmd instanceof BucketFillCommand);
 		assertEquals(((BucketFillCommand) testCmd).getX(), 10);
 		assertEquals(((BucketFillCommand) testCmd).getY(), 3);
@@ -77,10 +78,10 @@ public class TestCommandParser {
 	}
 	
 	@Test
-	public void testParseQuitCommand() throws DrawPrecheckException{
+	public void testParseQuitCommand() throws DrawPrecheckException, InvalidInputLineException{
 		String[] splitedStrings = {"Q"};
 		CommandParser parser = new VanillaCommandParser(validator, engine, app);
-		Command testCmd = parser.Parse(splitedStrings, CommandType.Q);
+		Command testCmd = parser.Parse(splitedStrings);
 		assertTrue(testCmd instanceof QuitCommand);	
 	}		
 }

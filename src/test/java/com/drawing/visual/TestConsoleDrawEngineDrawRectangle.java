@@ -38,7 +38,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect1Canvas = CanvasLoader.load(FILE_CANVAS_RECT1_10_4);
 		 char[][] testRect1Canvas ;
 		 engine.createCanvas(4, 10);
-		 engine.renderRectangle(1, 1 , 3, 3);
+		 engine.renderRectangle(new Point(1, 1) , new Point(3, 3));
 		 testRect1Canvas = engine.getCanvas().exportPixels();
 		 /*
 		 for(int i=0; i<testRect1Canvas.length;i++){
@@ -67,7 +67,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect2Canvas = CanvasLoader.load(FILE_CANVAS_RECT2_10_4);
 		 char[][] testRect2Canvas ;
 		 engine.createCanvas(4, 10);
-		 engine.renderRectangle(2, 1 , 4, 3);
+		 engine.renderRectangle(new Point(2,1) , new Point(4,3));
 		 testRect2Canvas = engine.getCanvas().exportPixels();		 
 		 assertArrayEquals(testRect2Canvas, expecRect2Canvas);
 		 assertEquals(testRect2Canvas.length, 10);
@@ -79,7 +79,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect3Canvas = CanvasLoader.load(FILE_CANVAS_RECT3_10_4);
 		 char[][] testRect3Canvas ;
 		 engine.createCanvas(4, 10);
-		 engine.renderRectangle(1, 8 , 3, 10);
+		 engine.renderRectangle(new Point(1, 8) , new Point(3, 10));
 		 testRect3Canvas = engine.getCanvas().exportPixels();		 
 		 assertArrayEquals(testRect3Canvas, expecRect3Canvas);
 		 assertEquals(testRect3Canvas.length, 10);
@@ -91,7 +91,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect4Canvas = CanvasLoader.load(FILE_CANVAS_RECT4_10_4);
 		 char[][] testRect4Canvas ;
 		 engine.createCanvas(4, 10);
-		 engine.renderRectangle(2, 8 , 4, 10);
+		 engine.renderRectangle(new Point(2, 8) , new Point(4, 10));
 		 testRect4Canvas = engine.getCanvas().exportPixels();		 
 		 assertArrayEquals(testRect4Canvas, expecRect4Canvas);
 		 assertEquals(testRect4Canvas.length, 10);
@@ -103,7 +103,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect5Canvas = CanvasLoader.load(FILE_CANVAS_RECT5_6_8);
 		 char[][] testRect5Canvas ;
 		 engine.createCanvas(8, 6);
-		 engine.renderRectangle(1, 1 , 8, 6);
+		 engine.renderRectangle(new Point(1, 1), new Point(8, 6));
 		 testRect5Canvas = engine.getCanvas().exportPixels();
 		 assertArrayEquals(testRect5Canvas, expecRect5Canvas);
 		 assertEquals(testRect5Canvas.length, 6);
@@ -115,7 +115,7 @@ public class TestConsoleDrawEngineDrawRectangle {
 		 char[][] expecRect6Canvas = CanvasLoader.load(FILE_CANVAS_RECT6_6_8);
 		 char[][] testRect6Canvas ;
 		 engine.createCanvas(8, 6);
-		 engine.renderRectangle(2, 2 , 7, 5);
+		 engine.renderRectangle(new Point(2, 2) , new Point(7, 5));
 		 testRect6Canvas = engine.getCanvas().exportPixels();
 		 assertArrayEquals(testRect6Canvas, expecRect6Canvas);
 		 assertEquals(testRect6Canvas.length, 6);

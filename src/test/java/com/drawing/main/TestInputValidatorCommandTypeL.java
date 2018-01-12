@@ -35,6 +35,7 @@ public class TestInputValidatorCommandTypeL{
 
 	@Test
 	public void testValidateTypeLCommandSuccess() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 1 2 6 2");
 		inputValidator.validate();
@@ -42,63 +43,96 @@ public class TestInputValidatorCommandTypeL{
 		assertTrue(cmd==CommandType.L);
 		String[] words = inputValidator.getCommandWords();
 		String[] expWords = new String[]{"L","1","2", "6", "2"};
-		assertArrayEquals(expWords, words);
+		assertArrayEquals(expWords, words);*/
+		String[] expWords = new String[]{"L","1","2", "6", "2"};
+		inputValidator.validate(expWords);
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeLCommandNotEnoughParameters() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 4 3");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		String[] expWords = new String[]{"L", "4", "3"};
+		inputValidator.validate(expWords);		
 	}	
 	
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeLCommandTooManyParameters() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 1 2 6 2 5");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "1", "2", "6", "2", "5"};
+		inputValidator.validate(expWords);			
 	}	
 
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeLCommandHasZeroParameter1() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 0 2 6 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "0", "2", "6", "2"};
+		inputValidator.validate(expWords);		
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeLCommandHasZeroParameter2() throws InvalidInputLineException {		
+	public void testValidateTypeLCommandHasZeroParameter2() throws InvalidInputLineException {
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 1 2 6 0");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "1", "2", "6", "0"};
+		inputValidator.validate(expWords);		
 	}	
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeLCommandHasNegativeParameter1() throws InvalidInputLineException {		
+	public void testValidateTypeLCommandHasNegativeParameter1() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L -3 2 6 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "-3", "2", "6", "2"};
+		inputValidator.validate(expWords);			
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeLCommandHasNegativeParameter2() throws InvalidInputLineException {		
+	public void testValidateTypeLCommandHasNegativeParameter2() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 1 2 -5 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "1", "2", "-5", "2"};
+		inputValidator.validate(expWords);			
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
 	public void testValidateTypeLCommandPointsSwap1() throws InvalidInputLineException {		
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 6 2 1 2");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "6", "2", "1", "2"};
+		inputValidator.validate(expWords);			
 	}
 	
 	@Test(expected = InvalidInputLineException.class)
-	public void testValidateTypeLCommandPointsSwap2() throws InvalidInputLineException {		
+	public void testValidateTypeLCommandPointsSwap2() throws InvalidInputLineException {	
+		/*
 		inputValidator.reset();
 		inputValidator.setProcessingStr("L 6 4 6 3");
-		inputValidator.validate();
+		inputValidator.validate();*/
+		
+		String[] expWords = new String[]{"L", "6", "4", "6", "3"};
+		inputValidator.validate(expWords);			
 	}	
 
 }

@@ -2,19 +2,20 @@ package com.drawing.visual;
 
 public interface DrawEngine {
 
-	public Canvas createCanvas(int w, int h);
-	
-	public void renderLine(int x1, int y1, int x2, int y2);
-	
-	public void renderRectangle(int x1, int y1, int x2, int y2);
-	
-	public void renderBucketFill(int x, int y, char c);
-	
-	public void quitProgram();	
-	
+	public Canvas createCanvas(int width, int height);
+
+	public void renderLine(Point point1, Point point2);
+
+	public void renderRectangle(Point point1, Point point2);
+
+	public void renderBucketFill(Point point1, char c);
+
+	//delete quitProgram(), it's not used and will cause coupling with the main program
+	//public void quitProgram();	
+
 	public void setCanvas(Canvas canvas);	
-	
+
 	public Canvas getCanvas();
-	
+
 	public void paintCanvas();
 }

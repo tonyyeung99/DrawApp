@@ -2,6 +2,7 @@ package com.drawing.command;
 
 import com.drawing.main.DrawApp;
 import com.drawing.main.DrawPrecheckException;
+import com.drawing.main.InvalidInputLineException;
 import com.drawing.visual.DrawEngine;
 
 public class VanillaCommandParser implements CommandParser {
@@ -17,17 +18,18 @@ public class VanillaCommandParser implements CommandParser {
 	}
 
 	@Override
-	public void validate(Command command) throws DrawPrecheckException {
+	public void validateDrawLogic(Command command) throws DrawPrecheckException {
 		validator.validate(command);
 	}	
 	
 	@Override
-	public Command Parse(String[] splitedInputLine, CommandType type)  throws DrawPrecheckException {
-		Command command = buildCommand(splitedInputLine, type);		
+	public Command Parse(String[] splitedInputLine)  throws DrawPrecheckException, InvalidInputLineException {
+		Command command = buildCommand(splitedInputLine );		
 		return command;
 	}
 	
-	public Command buildCommand(String[] splitedInputLine, CommandType type)  throws DrawPrecheckException {
+	public Command buildCommand(String[] splitedInputLine)  throws DrawPrecheckException, InvalidInputLineException {
+		CommandType type = parseCommand(splitedInputLine);
 		Command parsedCmd=null;
 		switch(type){
 			case C:
@@ -90,5 +92,19 @@ public class VanillaCommandParser implements CommandParser {
 	
 	private Command handleQuitCommand(){
 		return new QuitCommand(app);		
+	}	
+	
+	private CommandType parseCommand(String[] commandWords) throws InvalidInputLineException {
+		if(commandWords[0].matches("[c|C]"))
+			return CommandType.C;
+		else if(commandWords[0].matches("[l|L]"))
+			return CommandType.L;
+		else if(commandWords[0].matches("[r|R]"))
+			return CommandType.R;
+		else if(commandWords[0].matches("[b|B]"))
+			return CommandType.B;
+		else if(commandWords[0].matches("[q|Q]"))
+			return CommandType.Q;
+		throw new InvalidInputLineException("Input Error: ");
 	}	
 }
