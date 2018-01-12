@@ -67,9 +67,7 @@ enter command: B 10 3 o
 
 enter command: Q
 
-
 ******************************************************************************************
-
 I. Running Instruction
 
 1. Download the project to your computer
