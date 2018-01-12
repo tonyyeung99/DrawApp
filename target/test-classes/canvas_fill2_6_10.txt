@@ -1,8 +1,0 @@
-6;
-10;
-          ;
-XXX       ;
-ooXXXX    ;
-oooooX    ;
-oooooX    ;
-oooooX    ;

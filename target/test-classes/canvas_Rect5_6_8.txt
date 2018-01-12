@@ -1,8 +1,0 @@
-6;
-8;
-XXXXXXXX;
-X      X;
-X      X;
-X      X;
-X      X;
-XXXXXXXX;

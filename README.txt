@@ -73,23 +73,13 @@ enter command: Q
 I. Running Instruction
 
 1. Download the project to your computer
-2. It's a Maven project. However, I have used eclipse IDE(with Maven-plugin enabled) for developing and maintaining the project. In the following sections, it will mainly base on Eclipse and Maven-plugin.
-3. Import the project as a Existing Maven Project:
-		-Open eclipse
-		-Click File > Import
-		-Type Maven in the search box under Select an import source:
-		-Select Existing Maven Projects
-		-Click Next
-		-Click Browse and select the folder that is the root of the Maven project
-		-Click Next
-		-Click Finish
-4. Update the Maven Project in eclipse   
-5. Running the main Program
-		-run the main program "com.drawing.main.DrawApp" in Eclipse
-		-or mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
-6. Running the Junit Test
-		-run the junit test on the test folder in Eclipse
-7. Build the project with jar
+2. It's a Maven project. Compile the code:
+	- mvn compile
+3. Running the main Program
+	-mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
+4. Running the Junit Test
+	-mvn test
+5. Build the project with jar
 		-run the project with setting the Gaols="packages' in Eclipse
 		
 ******************************************************************************************
