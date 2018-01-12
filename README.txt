@@ -74,14 +74,14 @@ I. Running Instruction
 
 1. Download the project to your computer
 2. It's a Maven project. 
-	i. Compile the code, run the script:
-		- mvn compile
-	ii.	Running the main Program, run the script:
-		- mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
-	iii. Running the Junit Test, run the script:
-		- mvn test
-	iv. Build the JAR, run the script:
-		- mvn package
+  i. Compile the code, run the script:
+    mvn compile
+  ii. Running the main Program, run the script:
+    mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
+  iii. Running the Junit Test, run the script:
+    mvn test
+  iv. Build the JAR, run the script:
+     mvn package
 		
 ******************************************************************************************
 II. Dependency
