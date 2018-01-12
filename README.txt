@@ -1,7 +1,7 @@
 Description:
 
 A simple console version of a drawing program. 
-At this time, the functionality of the program is quire limited but this might change in the future. 
+At this time, the functionality of the program is quite limited but this might change in the future. 
 
 The program works as follows:
  1. Create a new canvas
@@ -73,14 +73,15 @@ enter command: Q
 I. Running Instruction
 
 1. Download the project to your computer
-2. It's a Maven project. Compile the code:
-	- mvn compile
-3. Running the main Program
-	-mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
-4. Running the Junit Test
-	-mvn test
-5. Build the project with jar
-		-run the project with setting the Gaols="packages' in Eclipse
+2. It's a Maven project. 
+	i. Compile the code, run the script:
+		- mvn compile
+	ii.	Running the main Program, run the script:
+		- mvn exec:java -Dexec.mainClass="com.drawing.main.DrawApp"
+	iii. Running the Junit Test, run the script:
+		- mvn test
+	iv. Build the JAR, run the script:
+		- mvn package
 		
 ******************************************************************************************
 II. Dependency
