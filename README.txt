@@ -2,7 +2,8 @@ Description:
 
 A simple console version of a drawing program. 
 At this time, the functionality of the program is quire limited but this might change in the future. 
-The program should work as follows:
+
+The program works as follows:
  1. Create a new canvas
  2. Start drawing on the canvas by issuing various commands
  3. Quit
@@ -71,7 +72,7 @@ enter command: Q
 
 I. Running Instruction
 
-1. Download the zip file DrawingApp.zip and unzip the files to your computer.
+1. Download the project to your computer
 2. It's a Maven project. However, I have used eclipse IDE(with Maven-plugin enabled) for developing and maintaining the project. In the following sections, it will mainly base on Eclipse and Maven-plugin.
 3. Import the project as a Existing Maven Project:
 		-Open eclipse
